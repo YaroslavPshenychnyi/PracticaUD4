@@ -14,6 +14,7 @@ public class MainForm {
     private JPanel settingsContainer;
     private JPanel productsContainer;
     private JPanel pedidosContainer;
+    private JPanel searchContainer;
 
     private JFrame window;
 
@@ -42,6 +43,10 @@ public class MainForm {
 
     public JPanel getMainPanel() {
         return mainPanel;
+    }
+
+    public JPanel getSearchContainer() {
+        return searchContainer;
     }
 
     public JTabbedPane getTabbedPane() {

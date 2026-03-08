@@ -16,6 +16,7 @@ public class MainController extends Controller<WrappedModel<Application>, Wrappe
     private SettingsController scp;
     private ProveedorController prc;
     private PedidoController pedidoController;
+    private SearchController searchController;
 
     public MainController(){
         super(null, new WrappedModel<Application>(new Application()),
@@ -31,18 +32,21 @@ public class MainController extends Controller<WrappedModel<Application>, Wrappe
         scp = new SettingsController(this, getModel());
         prc = new ProveedorController(this, getModel());
         pedidoController = new PedidoController(this, getModel());
+        searchController = new SearchController(this, getModel());
 
         view.getSuppliersContainer().add(prc.getView().get().getMainPanel(), BorderLayout.CENTER);
         view.getClientsContainer().add(cc.getView().get().getMainPanel(), BorderLayout.CENTER);
         view.getProductsContainer().add(pc.getView().get().getMainPanel(), BorderLayout.CENTER);
         view.getSettingsContainer().add(scp.getView().get().getMainPanel(), BorderLayout.CENTER);
         view.getPedidosContainer().add(pedidoController.getView().getMainPanel(), BorderLayout.CENTER);
+        view.getSearchContainer().add(searchController.getView().getMainPanel(), BorderLayout.CENTER);
 
         addChild(cc);
         addChild(pc);
         addChild(scp);
         addChild(prc);
         addChild(pedidoController);
+        addChild(searchController);
 
         view.getWindow().setVisible(true);
     }
@@ -60,6 +64,7 @@ public class MainController extends Controller<WrappedModel<Application>, Wrappe
         pc.clearAll();
         prc.clearAll();
         pedidoController.clearAll();
+        searchController.clearAll();
     }
 
     @Override
